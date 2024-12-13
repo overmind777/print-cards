@@ -1,0 +1,112 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f0f0f0;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 420mm;
+  height: 297mm; /* Формат A3 */
+  background-size: cover;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.container-info{
+  position: relative;
+  top: 0;
+  margin-left: auto;
+  width: 210mm;
+  height: 297mm; /* Формат A4 */
+  background: url('/title.jpeg') no-repeat center center;
+  background-size: cover;
+}
+
+.container-field{
+  position: absolute;
+}
+
+.header-container{
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  position: relative;
+  width: 80mm;
+  left: 115mm;
+  top: 10mm;
+}
+
+.form-field.top-input{
+  width: 80mm;
+}
+
+.center-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7mm;
+  top: 80mm;
+  left: 63mm;
+  width: 120mm;
+  height: 100mm;
+
+  background-color: antiquewhite;
+  opacity: 0.5;
+}
+
+.bottom-container{
+  bottom: 29mm;
+  right: 43mm;
+  background-color: antiquewhite;
+  opacity: 0.5;
+}
+
+.bottom-input.form-field{
+  width: 40mm;
+}
+
+.form-field {
+  width: 120mm;
+  font-size: 14px;
+  color: #000;
+  font-weight: bold;
+  border: 1px solid #000;
+  background: transparent;
+  padding: 2px;
+}
+
+.print-btn {
+  position: absolute;
+  bottom: 10mm;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.print-btn:hover {
+  background: #0056b3;
+}
+
+@media print {
+  .print-btn {
+    display: none;
+  }
+
+  /*.container {*/
+  /*  transform: scaleX(-1); !* Дзеркальне відображення *!*/
+  /*}*/
+}
