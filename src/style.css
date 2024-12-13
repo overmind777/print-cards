@@ -1,50 +1,39 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 100px;
+  width: 100vw;
   height: 100vh;
   background: #f0f0f0;
 }
 
+div, input {
+  outline: 1px solid red;
+}
+
 .container {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-  width: 420mm;
-  height: 297mm; /* Формат A3 */
-  background-size: cover;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 700px;
+  height: 700px; /* Формат A3 */
+  /*background-size: cover;*/
+  display: grid;
+  justify-items: center;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
 }
 
-.container-info{
-  position: relative;
-  top: 0;
-  margin-left: auto;
-  width: 210mm;
-  height: 297mm; /* Формат A4 */
-  background: url('/title.jpeg') no-repeat center center;
-  background-size: cover;
-}
-
-.container-field{
-  position: absolute;
-}
 
 .header-container{
+  width: 200px;
   display: flex;
   flex-direction: column;
-  gap: 2mm;
-  position: relative;
-  width: 80mm;
-  left: 115mm;
-  top: 10mm;
-}
+  gap: 2px;
 
-.form-field.top-input{
-  width: 80mm;
+  grid-column: 3;
+  grid-row: 1;
 }
 
 .center-container{
@@ -52,29 +41,38 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 7mm;
-  top: 80mm;
-  left: 63mm;
-  width: 120mm;
-  height: 100mm;
+  gap: 7px;
+  top: 55px;
+  left: 13px;
 
   background-color: antiquewhite;
   opacity: 0.5;
+
+  grid-column: 2;
+  grid-row: 2;
 }
 
 .bottom-container{
-  bottom: 29mm;
-  right: 43mm;
   background-color: antiquewhite;
   opacity: 0.5;
 }
 
+.container-field{
+  position: absolute;
+}
+
+.form-field.top-input{
+  width: 190px;
+}
+
+
+
 .bottom-input.form-field{
-  width: 40mm;
+  width: 40px;
 }
 
 .form-field {
-  width: 120mm;
+  width: 118px;
   font-size: 14px;
   color: #000;
   font-weight: bold;
@@ -85,7 +83,7 @@ body {
 
 .print-btn {
   position: absolute;
-  bottom: 10mm;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   padding: 10px 20px;
@@ -102,11 +100,18 @@ body {
 }
 
 @media print {
-  .print-btn {
+  #container-info {
+    display: block;
+    transform: rotate(-90deg);
+  }
+
+  button {
     display: none;
   }
 
-  /*.container {*/
-  /*  transform: scaleX(-1); !* Дзеркальне відображення *!*/
-  /*}*/
+  @page{
+    margin: 10mm;
+  }
 }
+
+
