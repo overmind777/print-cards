@@ -5,6 +5,8 @@ body {
   width: 100vw;
   height: 100vh;
   background: #f0f0f0;
+
+  outline: 1px solid blue;
 }
 
 div, input {
@@ -20,9 +22,8 @@ div, input {
   background: url("/ОНКО.jpg");
   background-size: cover;
   display: grid;
-  justify-items: center;
-  grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
   grid-gap: 5px;
 }
 
@@ -42,32 +43,29 @@ div, input {
 }
 
 .center-container{
+  position: relative;
   width: 390px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 21px;
-  top: 59px;
-  left: -68px;
-
-  background-color: antiquewhite;
-  opacity: 0.5;
+  top: -37px;
+  left: 120px;
 
   grid-column: 2;
   grid-row: 2;
 }
 
 .bottom-container{
-  bottom: 70px;
-  right: 216px;
+  position: relative;
+  top: 155px;
+  right: 138px;
   width: 130px;
-  background-color: antiquewhite;
-  opacity: 0.5;
-}
+  height: 20px;
 
-.container-field{
-  position: absolute;
+  grid-column: 3;
+  grid-row: 3;
 }
 
 .form-field.top-input{
@@ -86,6 +84,11 @@ div, input {
   border: 1px solid #000;
   background: transparent;
   padding: 2px;
+}
+
+.forth-input {
+  width: 220px;
+  margin-left: 160px;
 }
 
 .print-btn {
@@ -110,26 +113,45 @@ div, input {
 
   body {
     margin: 0;
+    padding: 0;
     color: #000;
     background-color: #fff;
+
+    width: 100%;
+    height: 100%;
   }
 
   #container {
     position: absolute;
-    top: 0;
+    top: -29mm;
     left: 31mm;
+    transform: rotate(-90deg);
+
+    width: 148mm;
+    height: 210mm;
   }
 
   .header-container{
-    position: absolute;
+    position: relative;
     top: 4mm;
-    right: 26mm;
+    right: 40mm;
+    width: 62mm;
+  }
+
+  .form-field.top-input{
+    width: 62mm;
   }
 
   .center-container{
-    position: absolute;
-    top: 98mm;
-    left: 36mm;
+    position: relative;
+    top: -16mm;
+    left: 28mm;
+    gap: 3mm;
+  }
+
+  .forth-input {
+    width: 120mm;
+    margin-left: 34mm;
   }
 
   button {
@@ -137,8 +159,8 @@ div, input {
   }
 
   @page {
-    size: A5; /* Встановлюємо розмір сторінки в альбомному режимі */
-    margin: 10mm; /* Поля для друку */
+    size: A4 portrait; /* Встановлюємо розмір сторінки в альбомному режимі */
+    margin: 2mm; /* Поля для друку */
   }
 }
 

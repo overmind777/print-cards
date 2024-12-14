@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Друк форми</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+    }
+
+    .container {
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      background: url('/title.jpeg') no-repeat center center;
+      background-size: cover;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .form-field {
+      position: absolute;
+      font-size: 14px;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-bottom: 1px solid #000;
+      background: transparent;
+      padding: 2px;
+    }
+
+    .top-input {
+      top: 20mm;
+      left: 30mm;
+      width: 80mm;
+    }
+
+    .center-container .form-field {
+      width: 120mm;
+    }
+
+    .bottom-input {
+      bottom: 20mm;
+      left: 40mm;
+      width: 40mm;
+    }
+
+    .print-btn {
+      position: absolute;
+      bottom: 10mm;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .print-btn:hover {
+      background: #0056b3;
+    }
+
+    @media print {
+      body {
+        margin: 0;
+        background-color: #fff;
+      }
+
+      button {
+        display: none;
+      }
+
+      .form-field {
+        border: none;
+        display: block;
+        width: auto;
+      }
+
+      .form-field::placeholder {
+        color: transparent;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container" id="form-container">
+  <input type="text" class="form-field top-input" placeholder="Ім'я">
+  <input type="text" class="form-field center-input" placeholder="Адреса">
+  <input type="text" class="form-field bottom-input" placeholder="Дата народження">
+
+  <button class="print-btn" onclick="prepareForPrint()">Друкувати</button>
+</div>
+
+<script>
+  function prepareForPrint() {
+    const inputs = document.querySelectorAll('.form-field');
+    inputs.forEach(input => {
+      const value = input.value;
+      const textNode = document.createElement('span');
+
+      textNode.textContent = value;
+      input.replaceWith(textNode);
+    });
+    window.print();
+    location.reload(); // Повернення до форми після друку
+  }
+</script>
+</body>
+</html>
