@@ -16,8 +16,9 @@ div, input {
   top: 0;
   left: 0;
   width: 700px;
-  height: 700px; /* Формат A3 */
-  /*background-size: cover;*/
+  height: 930px;
+  background: url("/ОНКО.jpg");
+  background-size: cover;
   display: grid;
   justify-items: center;
   grid-template-rows: 1fr 1fr 1fr;
@@ -27,23 +28,28 @@ div, input {
 
 
 .header-container{
-  width: 200px;
+  width: 290px;
+  height: 60px;
+  position: relative;
+  top: 16px;
+  right: 100px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 5px;
 
   grid-column: 3;
   grid-row: 1;
 }
 
 .center-container{
+  width: 390px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  top: 55px;
-  left: 13px;
+  gap: 21px;
+  top: 59px;
+  left: -68px;
 
   background-color: antiquewhite;
   opacity: 0.5;
@@ -53,6 +59,9 @@ div, input {
 }
 
 .bottom-container{
+  bottom: 70px;
+  right: 216px;
+  width: 130px;
   background-color: antiquewhite;
   opacity: 0.5;
 }
@@ -62,17 +71,15 @@ div, input {
 }
 
 .form-field.top-input{
-  width: 190px;
+  width: 280px;
 }
 
-
-
 .bottom-input.form-field{
-  width: 40px;
+  width: 125px;
 }
 
 .form-field {
-  width: 118px;
+  width: 385px;
   font-size: 14px;
   color: #000;
   font-weight: bold;
@@ -100,18 +107,40 @@ div, input {
 }
 
 @media print {
-  #container-info {
-    display: block;
-    transform: rotate(-90deg);
+
+  body {
+    margin: 0;
+    color: #000;
+    background-color: #fff;
+  }
+
+  #container {
+    position: absolute;
+    top: 0;
+    left: 31mm;
+  }
+
+  .header-container{
+    position: absolute;
+    top: 4mm;
+    right: 26mm;
+  }
+
+  .center-container{
+    position: absolute;
+    top: 98mm;
+    left: 36mm;
   }
 
   button {
-    display: none;
+    display: none; /* Приховуємо кнопку під час друку */
   }
 
-  @page{
-    margin: 10mm;
+  @page {
+    size: A5; /* Встановлюємо розмір сторінки в альбомному режимі */
+    margin: 10mm; /* Поля для друку */
   }
 }
+
 
 
